@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 
 {% block breadcrumb %}
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
-        <li class="breadcrumb-item"><a href="{{ url_for('images.image_list') }}">Images</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{ image }}</li>
-    </ol>
-</nav>
+<li class="breadcrumb-item">
+    <a href="{{ url_for('index') }}">Home</a>
+</li>
+<li class="breadcrumb-item active">
+    <a href="{{ url_for('images.image_list') }}">Images</a>
+</li>
+<li class="breadcrumb-item active" aria-current="page">
+    {{ image }}
+</li>
 {% endblock %}
 
 {% block view_title %}

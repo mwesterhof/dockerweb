@@ -12,3 +12,8 @@ app.register_blueprint(Containers)
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/sbtest')
+def sb_test():
+    return render_template('base_sb.html')
