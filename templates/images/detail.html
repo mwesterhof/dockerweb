@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ url_for('images.image_list') }}">Images</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ image }}</li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<p>{{ image }}</p>
+
+<h2>basic config</h2>
+<table class="table">
+    <tr>
+        <td>Entrypoint</td>
+        <td><tt>{{ image.attrs.Config.Entrypoint }}</tt></td>
+    </tr>
+    <tr>
+        <td>WorkingDir</td>
+        <td><tt>{{ image.attrs.Config.WorkingDir }}</tt></td>
+    </tr>
+</table>
+
+<h2>environment</h2>
+<table class="table">
+    {% for line in image.attrs.Config.Env %}
+    <tr>
+        <td>{{ line.split('=', 1)[0] }}</td>
+        <td><tt>{{ line.split('=', 1)[-1] }}</tt></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>volumes</h2>
+{{ image.attrs.Config.Volumes }}
+
+{% endblock content %}

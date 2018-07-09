@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Containers</li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<p>containers</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>container</th>
+            <th>image</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for container in containers %}
+        <tr>
+            <td>
+                <a href="{{ url_for('containers.container_detail', short_id=container.short_id) }}">{{ container }}</a>
+            </td>
+            <td>
+                <a href="{{ url_for('images.image_detail', short_id=container.image_id) }}">{{ container.image }}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
