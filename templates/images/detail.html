@@ -10,9 +10,11 @@
 </nav>
 {% endblock %}
 
-{% block content %}
-<p>{{ image }}</p>
+{% block view_title %}
+Image: {{ image }}
+{% endblock %}
 
+{% block content %}
 <h2>basic config</h2>
 <table class="table">
     <tr>

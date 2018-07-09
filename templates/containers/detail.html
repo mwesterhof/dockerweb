@@ -10,8 +10,10 @@
 </nav>
 {% endblock %}
 
-{% block content %}
-<p>{{ container }}</p>
+{% block view_title %}
+Container: {{ container }}
+{% endblock %}
 
+{% block content %}
 <p>image: <a href="{{ url_for('images.image_detail', short_id=container.image_id) }}">{{ container.image }}</a>
 {% endblock %}

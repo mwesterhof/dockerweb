@@ -5,12 +5,19 @@
     </head>
     <body>
         <div class="container">
-            {% block breadcrumb %}{% endblock %}
             <h1>dockerWeb</h1>
 
-            <div class="alert alert-secondary show" role="alert">
+            {% block breadcrumb %}{% endblock %}
+
+            <h2>
+                {% block view_title %}{% endblock %}
+            </h2>
+
+            {% if docker_command %}
+            <div class="alert alert-primary show" role="alert">
                 docker command: <strong>{{ docker_command }}</strong>
             </div>
+            {% endif %}
 
             {% block content %}
             {% endblock %}
