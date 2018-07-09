@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block breadcrumb %}
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Containers</li>
-    </ol>
-</nav>
+<li class="breadcrumb-item">
+    <a href="{{ url_for('index') }}">Home</a>
+</li>
+<li class="breadcrumb-item active">
+    Containers
+</li>
 {% endblock %}
 
 {% block view_title %}

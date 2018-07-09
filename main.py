@@ -14,6 +14,6 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/sbtest')
+@app.route('/tabletest')
 def sb_test():
-    return render_template('base_sb.html')
+    return render_template('table_test.html')

@@ -6,21 +6,21 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="#">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Home">
+                <a class="nav-link" href="{{ url_for('index') }}">
                     <i class="fa fa-fw fa-dashboard"></i>
-                    <span class="nav-link-text">Dashboard</span>
+                    <span class="nav-link-text">Home</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Images">
-                <a class="nav-link" href="#">
-                    <i class="fa fa-fw fa-book"></i>
+                <a class="nav-link" href="{{ url_for('images.image_list') }}">
+                    <i class="fa fa-fw fa-square"></i>
                     <span class="nav-link-text">Images</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Containers">
-                <a class="nav-link" href="#">
-                    <i class="fa fa-fw fa-server"></i>
+                <a class="nav-link" href="{{ url_for('containers.container_list') }}">
+                    <i class="fa fa-fw fa-th-large"></i>
                     <span class="nav-link-text">Containers</span>
                 </a>
             </li>

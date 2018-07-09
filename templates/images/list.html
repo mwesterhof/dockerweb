@@ -12,21 +12,26 @@ Images
 {% endblock %}
 
 {% block content %}
-
-<table class="table">
-    <tr>
-        <th>image</th>
-        <th>id</th>
-    </tr>
-    {% for image in images %}
-    <tr>
-        <td>
-            {{ image }}
-        </td>
-        <td>
-            <a href="{{ url_for('images.image_detail', short_id=image.short_id) }}">{{ image.short_id }}</a>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>image</th>
+                <th>id</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for image in images %}
+            <tr>
+                <td>
+                    {{ image }}
+                </td>
+                <td>
+                    <a href="{{ url_for('images.image_detail', short_id=image.short_id) }}">{{ image.short_id }}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
