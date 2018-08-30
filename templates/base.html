@@ -34,6 +34,13 @@
                 docker command: <strong>{{ docker_command }}</strong>
             </div>
             {% endif %}
+
+            <h1>
+                {% block view_title %}
+                Dashboard
+                {% endblock view_title %}
+            </h1>
+
             {% block content %}{% endblock %}
 
         </div>
@@ -42,7 +49,7 @@
         <footer class="sticky-footer">
             <div class="container">
                 <div class="text-center">
-                    <small>Copyright © Your Website 2018</small>
+                    <small>DockerWeb 2018</small>
                 </div>
             </div>
         </footer>

@@ -13,6 +13,14 @@ class Image:
         self.attrs = base_image.attrs
         self.client = client
 
+    @property
+    def containers(self):
+        return [
+            cont
+            for cont in self.client.containers
+            if cont.image.short_id == self.short_id
+        ]
+
     def __str__(self):
         return self.name
 
@@ -25,6 +33,7 @@ class Container:
         image_id = base_container.attrs['Image']
         self.image_id = image_id[:image_id.find(':') + 11]
         self.client = client
+        self.attrs = base_container.attrs
 
     @property
     def image(self):
@@ -37,6 +46,8 @@ class Container:
 class Client:
     def __init__(self):
         self._wrapped = docker.from_env()
+        self.info = self._wrapped.info()
+        self.version = self._wrapped.version()
 
     @property
     def images(self):

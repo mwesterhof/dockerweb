@@ -5,5 +5,12 @@
 {% endblock %}
 
 {% block content %}
-<pre>[dashboard content goes here]</pre>
+
+<dl>
+    {% for k, v in client.version.items() %}
+    <dt>{{ k }}</dt>
+    <dd>{{ v }}</dd>
+    {% endfor %}
+</dl>
+
 {% endblock %}

@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 
 from .containers import Containers
+from .docker_wrap import client
 from .images import Images
 
 
@@ -11,7 +12,7 @@ app.register_blueprint(Containers)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', client=client)
 
 
 @app.route('/tabletest')

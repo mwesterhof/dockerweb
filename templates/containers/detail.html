@@ -17,5 +17,19 @@ Container: {{ container }}
 {% endblock %}
 
 {% block content %}
-<p>image: <a href="{{ url_for('images.image_detail', short_id=container.image_id) }}">{{ container.image }}</a>
+<h3>Image</h3>
+<p>
+    <a href="{{ url_for('images.image_detail', short_id=container.image.short_id)}}">{{ container.image }}</a>
+</p>
+
+<h3>Environment</h3>
+<table class="table">
+    {% for line in container.attrs.Config.Env %}
+    <tr>
+        <td>{{ line.split('=', 1)[0] }}</td>
+        <td><tt>{{ line.split('=', 1)[-1] }}</tt></td>
+    </tr>
+    {% endfor %}
+</table>
+
 {% endblock %}

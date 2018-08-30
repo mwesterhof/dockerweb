@@ -17,7 +17,16 @@ Image: {{ image }}
 {% endblock %}
 
 {% block content %}
-<h2>basic config</h2>
+<h3>Containers using this image</h3>
+<ul>
+    {% for container in image.containers %}
+    <li>
+        <a href="{{ url_for('containers.container_detail', short_id=container.short_id) }}">{{ container }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<h3>Basic config</h3>
 <table class="table">
     <tr>
         <td>Entrypoint</td>
@@ -29,7 +38,7 @@ Image: {{ image }}
     </tr>
 </table>
 
-<h2>environment</h2>
+<h3>Environment</h3>
 <table class="table">
     {% for line in image.attrs.Config.Env %}
     <tr>
@@ -39,7 +48,7 @@ Image: {{ image }}
     {% endfor %}
 </table>
 
-<h2>volumes</h2>
+<h3>Volumes</h3>
 {{ image.attrs.Config.Volumes }}
 
 {% endblock content %}
