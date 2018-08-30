@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>dockerWeb</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>dockerWeb</h1>
+
+            {% block breadcrumb %}{% endblock %}
+
+            <h2>
+                {% block view_title %}{% endblock %}
+            </h2>
+
+            {% if docker_command %}
+            <div class="alert alert-primary show" role="alert">
+                docker command: <strong>{{ docker_command }}</strong>
+            </div>
+            {% endif %}
+
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>

@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 
 {% block breadcrumb %}
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Images</li>
-    </ol>
-</nav>
+<li class="breadcrumb-item">
+    <a href="{{ url_for('index') }}">Home</a>
+</li>
+<li class="breadcrumb-item active" aria-current="page">Images</li>
 {% endblock %}
 
 {% block view_title %}
@@ -14,21 +12,26 @@ Images
 {% endblock %}
 
 {% block content %}
-
-<table class="table">
-    <tr>
-        <th>image</th>
-        <th>id</th>
-    </tr>
-    {% for image in images %}
-    <tr>
-        <td>
-            {{ image }}
-        </td>
-        <td>
-            <a href="{{ url_for('images.image_detail', short_id=image.short_id) }}">{{ image.short_id }}</a>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>image</th>
+                <th>id</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for image in images %}
+            <tr>
+                <td>
+                    {{ image }}
+                </td>
+                <td>
+                    <a href="{{ url_for('images.image_detail', short_id=image.short_id) }}">{{ image.short_id }}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

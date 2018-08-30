@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-from .docker_wrap import client
+from docker_wrap import client
 
 
 Containers = Blueprint('containers', __name__, url_prefix='/containers')
