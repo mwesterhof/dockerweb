@@ -1,3 +1,6 @@
+import os
+import sys
+
 from flask import Flask, render_template
 
 from containers import Containers
@@ -21,4 +24,7 @@ def sb_test():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    print("Welcome to DockerWeb\n")
+
+    sys.stdout = open(os.devnull, 'w')
+    app.run(debug=False, host='0.0.0.0')
