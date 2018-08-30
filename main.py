@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 
-from .containers import Containers
-from .docker_wrap import client
-from .images import Images
+from containers import Containers
+from docker_wrap import client
+from images import Images
 
 
 app = Flask(__name__)
@@ -18,3 +18,7 @@ def index():
 @app.route('/tabletest')
 def sb_test():
     return render_template('table_test.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')

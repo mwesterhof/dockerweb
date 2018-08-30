@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-from .docker_wrap import client
+from docker_wrap import client
 
 Images = Blueprint('images', __name__, url_prefix='/images')
 
