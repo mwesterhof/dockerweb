@@ -18,6 +18,18 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     {% include "includes/navigation.html" %}
 
+
+    <!-- TODO: find a good place for these messages -->
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+
     <div class="content-wrapper">
         <div class="container-fluid">
             <ol class="breadcrumb">

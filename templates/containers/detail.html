@@ -17,6 +17,12 @@ Container: {{ container }}
 {% endblock %}
 
 {% block content %}
+<ul>
+    <li>
+        <a href="{{ url_for('containers.container_kill', short_id=container.short_id)}}">kill container</a>
+    </li>
+</ul>
+
 <h3>Image</h3>
 <p>
     <a href="{{ url_for('images.image_detail', short_id=container.image.short_id)}}">{{ container.image }}</a>

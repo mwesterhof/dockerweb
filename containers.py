@@ -20,3 +20,21 @@ def container_detail(short_id):
     return render_template(
         'containers/detail.html', container=container,
         docker_command='docker inspect {}'.format(short_id))
+
+
+@Containers.route('/<string:short_id>/kill')
+def container_kill(short_id):
+    container = client.get_container(short_id)
+    return render_template(
+        'containers/kill.html', container=container,
+        docker_command='docker kill {}'.format(short_id))
+
+
+@Containers.route('/<string:short_id>/kill/confirm')
+def container_kill_confirm(short_id):
+    container = client.get_container(short_id)
+    container.kill()
+    containers = client.containers
+    return render_template(
+        'containers/list.html', containers=containers,
+        docker_command='docker ps', messages=['container killed'])

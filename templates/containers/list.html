@@ -14,24 +14,26 @@ Containers
 {% endblock %}
 
 {% block content %}
-<table class="table">
-    <thead>
-        <tr>
-            <th>container</th>
-            <th>image</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for container in containers %}
-        <tr>
-            <td>
-                <a href="{{ url_for('containers.container_detail', short_id=container.short_id) }}">{{ container }}</a>
-            </td>
-            <td>
-                <a href="{{ url_for('images.image_detail', short_id=container.image_id) }}">{{ container.image }}</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>container</th>
+                <th>image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for container in containers %}
+            <tr>
+                <td>
+                    <a href="{{ url_for('containers.container_detail', short_id=container.short_id) }}">{{ container }}</a>
+                </td>
+                <td>
+                    <a href="{{ url_for('images.image_detail', short_id=container.image_id) }}">{{ container.image }}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

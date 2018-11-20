@@ -39,6 +39,9 @@ class Container:
     def image(self):
         return self.client.get_image(self.image_id)
 
+    def kill(self):
+        self.base_container.kill()
+
     def __str__(self):
         return self.name
 
